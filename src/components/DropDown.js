@@ -1,25 +1,23 @@
 import { useState } from "react";
 
-const DropDown = ({ options }) => {
+const DropDown = ({ options, getDropDownValue }) => {
   const [open, setOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState("Quantity");
+  const [selectedOption, setSelectedOption] = useState("All");
 
   const handleOpen = () => {
     setOpen(!open);
   };
 
-  const handleSelect = (value) => {
-    setSelectedOption(value);
+  const handleSelect = (option) => {
+    setSelectedOption(option.label);
+    getDropDownValue(option.value);
     setOpen(!open);
   };
 
   const renderedOptions = options.map((option) => {
     return (
       open && (
-        <div
-          className="hover:bg-blue-300"
-          onClick={() => handleSelect(option.value)}
-        >
+        <div className="hover:bg-blue-300" onClick={() => handleSelect(option)}>
           {option.label}
         </div>
       )

@@ -28,9 +28,9 @@ const CartListItem = ({ item, remove, updateQuantity, getItemQuantity }) => {
       <div className="flex flex-col items-start gap-4 justify-end">
         <h1>${item.price}</h1>
         <div>
-          <label className="inline">quantity: </label>
+          <label>Quantity: </label>
           <input
-            className="w-11 inline"
+            className="w-11 border-2"
             onChange={onInputChange}
             value={quantity}
             type="number"
